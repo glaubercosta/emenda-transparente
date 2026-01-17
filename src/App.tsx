@@ -11,10 +11,16 @@ import { seedMockData } from "./data/mockEmendas";
 import PublicHome from "./pages/public/PublicHome";
 import ConsultaEmendas from "./pages/public/ConsultaEmendas";
 import DetalheEmenda from "./pages/public/DetalheEmenda";
+import Metodologia from "./pages/public/Metodologia";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import NovaEmenda from "./pages/admin/NovaEmenda";
+import ListaEmendas from "./pages/admin/ListaEmendas";
+import Concedentes from "./pages/admin/Concedentes";
+import Recebedores from "./pages/admin/Recebedores";
+import Usuarios from "./pages/admin/Usuarios";
+import Configuracoes from "./pages/admin/Configuracoes";
 
 const queryClient = new QueryClient();
 
@@ -30,16 +36,22 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
+        <Routes>
             {/* Public Routes */}
             <Route path="/" element={<PublicHome />} />
             <Route path="/consulta" element={<ConsultaEmendas />} />
             <Route path="/consulta/:id" element={<DetalheEmenda />} />
             <Route path="/detalhe/:id" element={<Navigate to="/consulta/:id" replace />} />
+            <Route path="/metodologia" element={<Metodologia />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/emendas" element={<ListaEmendas />} />
             <Route path="/admin/emendas/nova" element={<NovaEmenda />} />
+            <Route path="/admin/concedentes" element={<Concedentes />} />
+            <Route path="/admin/recebedores" element={<Recebedores />} />
+            <Route path="/admin/usuarios" element={<Usuarios />} />
+            <Route path="/admin/configuracoes" element={<Configuracoes />} />
             <Route path="/cadastro" element={<Navigate to="/admin/emendas/nova" replace />} />
             
             {/* Catch-all */}
